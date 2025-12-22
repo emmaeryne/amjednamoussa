@@ -1,0 +1,258 @@
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/500.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/poppins/300.css';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Namoussa Brand Colors */
+    --background: 35 33% 96%; /* #F5EFE6 beige */
+    --foreground: 0 0% 0%; /* black */
+
+    --card: 35 33% 98%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 35 33% 98%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%; /* black */
+    --primary-foreground: 35 33% 96%;
+
+    --secondary: 0 23% 73%; /* #CFA5A5 rose poudré */
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 35 20% 90%;
+    --muted-foreground: 35 10% 40%;
+
+    --accent: 0 23% 73%; /* rose poudré */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 0 23% 73%;
+
+    --radius: 0.5rem;
+
+    /* Custom brand tokens */
+    --rose-soft: 0 23% 73%;
+    --rose-light: 0 30% 92%;
+    --beige-warm: 35 33% 96%;
+    --beige-dark: 35 25% 88%;
+    --cream: 40 40% 97%;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
+    --shadow-elegant: 0 8px 30px -8px hsl(0 0% 0% / 0.12);
+    --shadow-rose: 0 8px 30px -8px hsl(0 23% 73% / 0.3);
+
+    /* Sidebar (keeping defaults) */
+    --sidebar-background: 35 33% 98%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 35 33% 96%;
+    --sidebar-accent: 0 23% 73%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 35 20% 85%;
+    --sidebar-ring: 0 23% 73%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 35 33% 96%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 35 33% 96%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 35 33% 96%;
+
+    --primary: 35 33% 96%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 23% 40%;
+    --secondary-foreground: 35 33% 96%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 35 20% 70%;
+
+    --accent: 0 23% 50%;
+    --accent-foreground: 35 33% 96%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 35 33% 96%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 23% 60%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 35 33% 96%;
+    --sidebar-primary: 0 23% 73%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 35 33% 96%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 23% 73%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .text-gradient-rose {
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-elegant {
+    background: linear-gradient(180deg, hsl(var(--cream)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .bg-gradient-rose {
+    background: linear-gradient(135deg, hsl(var(--rose-light)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-rose {
+    box-shadow: var(--shadow-rose);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--beige-dark));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
